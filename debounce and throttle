@@ -41,7 +41,7 @@ function throttle(fn, thresh = 160) {
         }
     }
 }
-let mousemove = throttle(function (e) {
+var mousemove = throttle(function (e) {
     console.log(e.pageX, e.pageY)
 });
 
