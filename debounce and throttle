@@ -1,0 +1,19 @@
+function debounce(fn, delay) {
+    let timeout;
+    return function (e) {
+        console.log('清除', timeout, e.target.value)
+        clearTimeout(timeout);
+        let context = this, args = arguments;
+        console.log('新的', timeout, e.target.value)
+        timeout = setTimeout(function () {
+            console.log('----')
+            fn.apply(context, args);
+        }, delay)
+    };
+};
+
+let validate = debounce(function (e) {
+    console.log('change', e.target.value, new Date - 0)
+}, 380)
+
+document.querySelector('input').addEventListener('input', validate);
