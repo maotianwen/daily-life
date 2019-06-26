@@ -12,19 +12,28 @@ ES6输入的模块变量，只是一个“符号连接”，所以这个变量�
 ### 为什么是node_modules和package.json?
  
 
-Why not node_packages or module.json ?
+###### Why not node_packages or module.json ?
 
-The package.json file defines the package.  
+>The package.json file defines the package.  
 
 The node_modules folder is the place Node.js looks for modules.  
 
 For example, if you create a file at **node_modules/foo.js** and then had a program that did **var f = require('foo.js')**, it    
 would load the module. However, **foo.js** is not a "package" in this case because it does not have a package.json.  
 
+
+
+
+
 没有package.json文件的不能叫package,它可以是module。node_modules是Node.js用来寻找模块的。
 
 
-Alternatively, if you create a package which does not have an index.js or a "main" field in the package.json file, then it is  
+
+
+
+>Alternatively, if you create a package which does not have an index.js or a "main" field in the package.json file, then it is  
 not a module. Even if it's installed in node_modules, it can't be an argument to require().
+
+
 
 或者，如果你创建了一个package，而这个package里没有index.js。或者这个package的package.json中没有"main"这一项，那它也不能称作一个模块，即使它被安装在node_modules中，它也不能作为require()函数的参数。
