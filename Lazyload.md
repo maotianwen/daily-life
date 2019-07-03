@@ -31,10 +31,10 @@
           let len = images.length;
           let n = 0;
           return function() {
-            let height = document.documentElement.clientHeight;
+            let height = window.innerHeight || document.documentElement.clientHeight;
             let scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
             for(let i = n;i<len;i++){
-             if(images[i].offsetTop < height + scrollTop){
+             if(images[i].getBoundingClientRect().top < height + scrollTop){
                 if(images[i].getAttribute('src') === 'images/loading.gif'){
                    images[i].src = images[i].getAttribute('data-src');
                 }
